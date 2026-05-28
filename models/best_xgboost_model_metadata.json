@@ -1,0 +1,56 @@
+{
+  "model_name": "XGBoostClassifier",
+  "target": "target_good_review",
+  "positive_class": "good_review",
+  "threshold": 0.5,
+  "metrics": {
+    "model": "XGBoost",
+    "accuracy": 0.8299595141700404,
+    "precision": 0.8372569089048106,
+    "recall": 0.964622641509434,
+    "f1": 0.8964383561643836,
+    "roc_auc": 0.7546397819626938,
+    "n_estimators": 200,
+    "learning_rate": 0.1,
+    "max_depth": 6
+  },
+  "feature_columns": [
+    "product_category_name_english",
+    "payment_type",
+    "customer_geo_state",
+    "price",
+    "freight_value",
+    "payment_value_total",
+    "product_weight_g",
+    "product_length_cm",
+    "product_height_cm",
+    "product_width_cm",
+    "product_volume_cm3",
+    "freight_ratio",
+    "shipping_time",
+    "approval_delay",
+    "delivery_delay",
+    "is_late_delivery"
+  ],
+  "categorical_columns": [
+    "product_category_name_english",
+    "payment_type",
+    "customer_geo_state"
+  ],
+  "numeric_columns": [
+    "price",
+    "freight_value",
+    "payment_value_total",
+    "product_weight_g",
+    "product_length_cm",
+    "product_height_cm",
+    "product_width_cm",
+    "product_volume_cm3",
+    "freight_ratio",
+    "shipping_time",
+    "approval_delay",
+    "delivery_delay",
+    "is_late_delivery"
+  ],
+  "artifact_path": "../models/best_xgboost_model.joblib"
+}

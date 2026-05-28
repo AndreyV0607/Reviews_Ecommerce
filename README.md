@@ -44,6 +44,9 @@ The datasets were denormalized into a single analysis table using custom functio
 Reviews_ECommerce/
 ├── datasets/
 ├── images/
+├── models/
+│   ├── best_xgboost_model.pkl
+│   └── best_xgboost_model_metadata.json
 ├── notebooks/
 │   ├── eda_model01.ipynb
 │   └── prediction_model01.ipynb
@@ -132,6 +135,33 @@ max_depth = 6
 ```
 
 XGBoost had the best overall metrics, but the business problem is not only predicting good reviews. The more important question is whether the model can detect bad reviews early enough to support preventive action.
+
+## Saved Model Artifact
+
+The best overall model was saved in the `models/` folder:
+
+- `models/best_xgboost_model.pkl`
+- `models/best_xgboost_model_metadata.json`
+
+The saved artifact is a complete scikit-learn pipeline containing both preprocessing and the trained XGBoost classifier. This means it can be loaded later from the `.pkl` file with `joblib` and used directly for predictions with the same feature columns.
+
+The saved model corresponds to the best XGBoost configuration:
+
+```text
+n_estimators = 200
+learning_rate = 0.10
+max_depth = 6
+```
+
+Saved test metrics:
+
+| Metric | Value |
+|---|---:|
+| Accuracy | 0.830 |
+| Precision | 0.837 |
+| Recall | 0.965 |
+| F1 | 0.896 |
+| ROC-AUC | 0.755 |
 
 ## Business-Focused Bad Review Model
 
